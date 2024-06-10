@@ -4,6 +4,8 @@
 #include<fstream>
 using namespace std;
 
+
+char blabla;
 char wybor;
 
 int main()
@@ -55,7 +57,7 @@ int main()
 			break;
 		case'4':
 			system("cls");
-			plik.open("C:/Users/conta/Desktop/regulamin.txt", ios::in);
+			plik.open("regulamin.txt", ios::in);
 			if (plik.good())
 			{
 				while (!plik.eof())
