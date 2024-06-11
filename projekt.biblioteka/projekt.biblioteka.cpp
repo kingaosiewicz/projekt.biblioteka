@@ -2,10 +2,11 @@
 #include <string>
 #include<ctime>
 #include<fstream>
+#include<stdio.h>
 using namespace std;
 
 
-char blabla;
+
 char wybor;
 
 int main()
