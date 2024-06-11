@@ -5,8 +5,6 @@
 #include<stdio.h>
 using namespace std;
 
-
-
 char wybor;
 
 int main()
