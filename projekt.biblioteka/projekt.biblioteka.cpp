@@ -4,6 +4,7 @@
 #include<fstream>
 #include<stdio.h>
 using namespace std;
+#include"sqlite/sqlite3.h"
 
 char wybor;
 
