@@ -127,8 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\sqlite\shell.c" />
-    <ClCompile Include="..\sqlite\sqlite3.c" />
     <ClCompile Include="projekt.biblioteka.cpp" />
   </ItemGroup>
   <ItemGroup>
