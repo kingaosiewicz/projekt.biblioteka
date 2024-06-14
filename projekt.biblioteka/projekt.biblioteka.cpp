@@ -15,6 +15,8 @@ int main()
 {
 	string linia;
 	fstream plik;
+
+	start:
 	while (true)
 	{
 		cout <<
@@ -47,10 +49,13 @@ int main()
 			cin >> login;
 			cout << "Podaj haslo: " << endl;
 			cin >> haslo;
+			system("cls");
 
 			if (login == "admin" && haslo == "admin")
 			{
 				cout << "Udane zalogowanie na konto aministatora " << endl;
+
+				
 				while (true)
 				{
 					cout << "1.Dodaj ksiazke" << endl;
@@ -59,7 +64,56 @@ int main()
 					cout << "4.Usun uzytkownikow" << endl;
 					cout << "5.Wyloguj" << endl;
 					cin >> wybor2;
-					break;
+					switch (wybor2)
+					{
+					case'1':
+					{
+						system("cls");
+						cout << "Wybrales opcje 1" << endl;
+						getchar();
+						getchar();
+						break;
+					}
+					case'2':
+					{
+						system("cls");
+						cout << "Wybrales opcje 2" << endl;
+						getchar();
+						getchar();
+						break;
+					}
+					case'3':
+					{
+						system("cls");
+						cout << "Wybrales opcje 3" << endl;
+						getchar();
+						getchar();
+						break;
+					}
+					case'4':
+					{
+						system("cls");
+						cout << "Wybrales opcje 4" << endl;
+						getchar();
+						getchar();
+						break;
+					}
+					case'5':
+					{
+						system("cls");
+						cout << "Wybrales opcje 5" << endl;
+						getchar();
+						getchar();
+						goto start;
+					}
+					default:
+					{
+						cout << "Wybierz opcje z listy!" << endl;
+						system("cls");
+					}
+
+					}
+					
 				}
 			}
 
