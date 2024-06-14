@@ -7,6 +7,9 @@ using namespace std;
 #include"sqlite/sqlite3.h"
 
 char wybor;
+char wybor2;
+string login;
+string haslo;
 
 int main()
 {
@@ -40,6 +43,26 @@ int main()
 		case'1':
 			system("cls");
 			cout << "Wybrales opcje 1" << endl;
+			cout << "Podaj login: " << endl;
+			cin >> login;
+			cout << "Podaj haslo: " << endl;
+			cin >> haslo;
+
+			if (login == "admin" && haslo == "admin")
+			{
+				cout << "Udane zalogowanie na konto aministatora " << endl;
+				while (true)
+				{
+					cout << "1.Dodaj ksiazke" << endl;
+					cout << "2.Usun ksiazke" << endl;
+					cout << "3.Pokaz uzytkownikow" << endl;
+					cout << "4.Usun uzytkownikow" << endl;
+					cout << "5.Wyloguj" << endl;
+					cin >> wybor2;
+					break;
+				}
+			}
+
 			getchar();
 			getchar();
 			break;
