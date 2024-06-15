@@ -8,15 +8,19 @@ using namespace std;
 
 char wybor;
 char wybor2;
+char wybor3;
+int uzytkownik = 0;
 string login;
 string haslo;
+string login_rejestracja[50];
+string haslo_rejestracja[50];
 
 int main()
 {
 	string linia;
 	fstream plik;
 
-	start:
+start:
 	while (true)
 	{
 		cout <<
@@ -40,6 +44,7 @@ int main()
 		cout << "5.Wyjdz" << endl;
 		cin >> wybor;
 
+		bool zalogowany = false;
 		switch (wybor)
 		{
 		case'1':
@@ -55,7 +60,7 @@ int main()
 			{
 				cout << "Udane zalogowanie na konto aministatora " << endl;
 
-				
+
 				while (true)
 				{
 					cout << "1.Dodaj ksiazke" << endl;
@@ -113,16 +118,99 @@ int main()
 					}
 
 					}
-					
+
 				}
 			}
+			
+			for (int i = 0; i < uzytkownik; i++)
+			{
+				if (login == login_rejestracja[i] && haslo == haslo_rejestracja[i])
+				{
+					cout << "Udane zalogowanie na konto uzytkownika " << login_rejestracja[i] << endl;
 
-			getchar();
-			getchar();
-			break;
+
+					while (true)
+					{
+						cout << "1.Pokaz ksiazki" << endl;
+						cout << "2.Wypozycz ksiazke" << endl;
+						cout << "3.Oddaj ksiazki" << endl;
+						cout << "4.Przegladaj moje ksiazki" << endl;
+						cout << "5.Wyloguj" << endl;
+						cin >> wybor3;
+						switch (wybor3)
+						{
+						case'1':
+
+							system("cls");
+							cout << "Wybrales opcje 1" << endl;
+							getchar();
+							getchar();
+							break;
+
+						case'2':
+
+							system("cls");
+							cout << "Wybrales opcje 2" << endl;
+							getchar();
+							getchar();
+							break;
+
+						case'3':
+
+							system("cls");
+							cout << "Wybrales opcje 3" << endl;
+							getchar();
+							getchar();
+							break;
+
+						case'4':
+
+							system("cls");
+							cout << "Wybrales opcje 4" << endl;
+							getchar();
+							getchar();
+							break;
+
+						case'5':
+
+							system("cls");
+							cout << "Wybrales opcje 5" << endl;
+							getchar();
+							getchar();
+							goto start;
+
+						default:
+							cout << "Wybierz opcje z listy!" << endl;
+							system("cls");
+
+
+						}
+					}
+				}
+			}
+			if (!zalogowany)
+				{
+					cout << "Nieudane logowanie!" << endl;
+					break;
+				}
+				
+				
+
+		
+			
+
+				getchar();
+				getchar();
+				break;
 		case'2':
 			system("cls");
 			cout << "Wybrales opcje 2" << endl;
+			cout << "Podaj login:" << endl;
+			cin >> login_rejestracja[uzytkownik];
+			cout << "Podaj haslo:" << endl;
+			cin >> haslo_rejestracja[uzytkownik];
+			uzytkownik++;
+			cout << "Gratulujemy udanego zalozenia karty bibliotecznej" << endl;
 			getchar();
 			getchar();
 			break;
@@ -156,11 +244,13 @@ int main()
 			exit(0);
 			break;
 		default: cout << "Wybierz opcje z listy!" << endl;
-		}
-		//getchar();
-		system("cls");
+			}
+			//getchar();
+			system("cls");
 
+		}
+		
+
+		return 0;
 	}
 
-	return 0;
-}
