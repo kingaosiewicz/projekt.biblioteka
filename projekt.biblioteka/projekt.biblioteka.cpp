@@ -126,7 +126,7 @@ start:
 			{
 				if (login == login_rejestracja[i] && haslo == haslo_rejestracja[i])
 				{
-					cout << "Udane zalogowanie na konto uzytkownika " << login_rejestracja[i] << endl;
+					cout << "Udane zalogowanie na konto uzytkownika " << login_rejestracja[i] << endl; //trzeba to jakos polaczyc z ta metoda
 
 
 					while (true)
@@ -193,11 +193,6 @@ start:
 					cout << "Nieudane logowanie!" << endl;
 					break;
 				}
-				
-				
-
-		
-			
 
 				getchar();
 				getchar();
@@ -205,8 +200,12 @@ start:
 		case'2':
 			system("cls");
 			cout << "Wybrales opcje 2" << endl;
+			cout << "Podaj twoje imie:" << endl;
+			// metoda
+			cout << "Podaj twoje nazwisko:" << endl;
+			// tez metoda
 			cout << "Podaj login:" << endl;
-			cin >> login_rejestracja[uzytkownik];
+			cin >> login_rejestracja[uzytkownik]; // to potem zmienimy na te z metody, ale niech razie tak bedzie moze sie przyda na cos
 			cout << "Podaj haslo:" << endl;
 			cin >> haslo_rejestracja[uzytkownik];
 			uzytkownik++;
