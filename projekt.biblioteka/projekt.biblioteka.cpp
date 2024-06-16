@@ -485,9 +485,20 @@ int main()
 	string linia;
 	fstream plik;
 
+
+
 start:
 	while (true)
 	{
+        sqlite3* db;
+        int db_exit = sqlite3_open("pierwszepodejscie.db", &db);
+        if (db_exit) {
+            cerr << "Can't open database: " << sqlite3_errmsg(db) << endl;
+            return -1;
+        }
+
+        User user(db);
+        Book book(db);
 		cout <<
 			R"( ___     __        __    ___     __
 |   |___|  |__    |  |__|   |  _|  |
@@ -530,7 +541,7 @@ start:
 					cout << "1.Dodaj ksiazke" << endl;
 					cout << "2.Usun ksiazke" << endl;
 					cout << "3.Pokaz uzytkownikow" << endl;
-					cout << "4.Usun uzytkownikow" << endl;
+					cout << "4.Usun uzytkownika" << endl;
 					cout << "5.Wyloguj" << endl;
 					cin >> wybor2;
 					switch (wybor2)
@@ -539,7 +550,7 @@ start:
 					{
 						system("cls");
 						cout << "Wybrales opcje 1" << endl;
-                        void dodajKsiazke();
+                        book.dodajKsiazke();
 						getchar();
 						getchar();
 						break;
@@ -548,7 +559,7 @@ start:
 					{
 						system("cls");
 						cout << "Wybrales opcje 2" << endl;
-                        void usunKsiazke();
+                        book.usunKsiazke();
 						getchar();
 						getchar();
 						break;
@@ -557,7 +568,7 @@ start:
 					{
 						system("cls");
 						cout << "Wybrales opcje 3" << endl;
-                        void wyswietlUzytkownikow();
+                        user.wyswietlUzytkownikow();
 						getchar();
 						getchar();
 						break;
@@ -566,7 +577,7 @@ start:
 					{
 						system("cls");
 						cout << "Wybrales opcje 4" << endl;
-                        void usunUzytkownika();
+                        user.usunUzytkownika();
 						getchar();
 						getchar();
 						break;
@@ -607,6 +618,7 @@ start:
 
 							system("cls");
 							cout << "Wybrales opcje 1" << endl;
+                            book.wypiszKsiazki
 							getchar();
 							getchar();
 							break;
@@ -615,7 +627,11 @@ start:
 
 							system("cls");
                             cout << "Wybrales opcje 2" << endl;
-                            void wypozyczKsiazke();
+                            string tytul_ksiazki;
+                            cout << "Podaj tytu³ ksi¹¿ki któr¹ chcesz oddaæ: ";
+                            cin.ignore();
+                            getline(cin, tytul_ksiazki);
+                            book.wypozyczKsiazke(tytul_ksiazki, login);
 							getchar();
 							getchar();
 							break;
@@ -624,7 +640,11 @@ start:
 
 							system("cls");
 							cout << "Wybrales opcje 3" << endl;
-                            void oddajKsiazke(const string & tytul_ksiazki, int id_uzytkownika);
+                            string tytul_ksiazki;
+                            cout << "Podaj tytu³ ksi¹¿ki któr¹ chcesz oddaæ: ";
+                            cin.ignore();
+                            getline(cin, tytul_ksiazki);
+                            book.oddajKsiazke(tytul_ksiazki, login);
 							getchar();
 							getchar();
 							break;
@@ -633,7 +653,7 @@ start:
 
 							system("cls");
 							cout << "Wybrales opcje 4" << endl;
-                            void mojeKsiazki();
+                            book.mojeKsiazki(login);
 							getchar();
 							getchar();
 							break;
@@ -667,7 +687,7 @@ start:
 		case'2':
 			system("cls");
 			cout << "Wybrales opcje 2" << endl;
-            void dodajUzytkownika();
+            user.dodajUzytkownika();
 			cout << "Gratulujemy udanego zalozenia karty bibliotecznej" << endl;
 			getchar();
 			getchar();
